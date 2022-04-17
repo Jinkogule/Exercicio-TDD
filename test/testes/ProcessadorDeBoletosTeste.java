@@ -18,6 +18,21 @@ public class ProcessadorDeBoletosTeste {
 	public void teste_pago_com_3() {
             assertEquals(ProcessadorDeBoletos.processa_boletos(), "Fatura PAGA com 3 pagamentos do tipo BOLETO");
 	}
+        
+        @Test
+	public void teste_pago_com_1() {
+            assertEquals(ProcessadorDeBoletos.processa_boletos(), "Fatura PAGA com 3 pagamentos do tipo BOLETO");
+	}
+        
+        @Test
+	public void teste_pendente_com_2() {
+            assertEquals(ProcessadorDeBoletos.processa_boletos(), "Fatura PAGA com 3 pagamentos do tipo BOLETO");
+	}
+        
+        @Test
+	public void teste_pendente_com_5() {
+            assertEquals(ProcessadorDeBoletos.processa_boletos(), "Fatura PAGA com 3 pagamentos do tipo BOLETO");
+	}
 	
 	public static void main(String[] args) {
 		
