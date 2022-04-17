@@ -14,24 +14,46 @@ public class ProcessadorDeBoletosTeste {
 		
         ArrayList<Boleto> lista_de_boletos1 = new ArrayList<Boleto>();
 	
+        Boleto boleto1 = new Boleto("Conta de Luz", "14/04/2022", 600.0);
+        Boleto boleto2 = new Boleto("Conta de Água", "14/04/2022", 200.0);
+        Boleto boleto3 = new Boleto("Conta de Telefone", "14/04/2022", 1000.0);
+        Boleto boleto4 = new Boleto("Internet", "14/04/2022", 1501.0);
+        Boleto boleto5 = new Boleto("Assinatura de TV", "14/04/2022", 1000.0);
+        
 	@Test
 	public void teste_pago_com_3() {
-            assertEquals(ProcessadorDeBoletos.processa_boletos(), "Fatura PAGA com 3 pagamentos do tipo BOLETO");
-	}
+            lista_de_boletos1.add(boleto1);
+            lista_de_boletos1.add(boleto2);
+            lista_de_boletos1.add(boleto3);
+            
+            assertEquals(ProcessadorDeBoletos.processa_boletos(lista_de_boletos1, fatura, "17/04/2022", "BOLETO"), "Fatura PAGA com 3 pagamentos do tipo BOLETO");
+        }
         
         @Test
 	public void teste_pago_com_1() {
-            assertEquals(ProcessadorDeBoletos.processa_boletos(), "Fatura PAGA com 3 pagamentos do tipo BOLETO");
+            lista_de_boletos1.add(boleto4);
+            
+            assertEquals(ProcessadorDeBoletos.processa_boletos(lista_de_boletos1, fatura, "17/04/2022", "BOLETO"), "Fatura PAGA com 1 pagamentos do tipo BOLETO");
 	}
         
         @Test
 	public void teste_pendente_com_2() {
-            assertEquals(ProcessadorDeBoletos.processa_boletos(), "Fatura PAGA com 3 pagamentos do tipo BOLETO");
+            
+            lista_de_boletos1.add(boleto1);
+            lista_de_boletos1.add(boleto2);
+            
+            assertEquals(ProcessadorDeBoletos.processa_boletos(lista_de_boletos1, fatura, "17/04/2022", "BOLETO"), "Fatura PENDENTE com 2 pagamentos do tipo BOLETO");
 	}
         
         @Test
 	public void teste_pendente_com_5() {
-            assertEquals(ProcessadorDeBoletos.processa_boletos(), "Fatura PAGA com 3 pagamentos do tipo BOLETO");
+            lista_de_boletos1.add(boleto2);
+            lista_de_boletos1.add(boleto2);
+            lista_de_boletos1.add(boleto2);
+            lista_de_boletos1.add(boleto2);
+            lista_de_boletos1.add(boleto2);
+            
+            assertEquals(ProcessadorDeBoletos.processa_boletos(lista_de_boletos1, fatura, "17/04/2022", "BOLETO"), "Fatura PENDENTE com 5 pagamentos do tipo BOLETO");
 	}
 	
 	public static void main(String[] args) {
