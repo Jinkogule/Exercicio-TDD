@@ -67,11 +67,6 @@ public class ProcessadorDeBoletosTeste {
             
             assertEquals(ProcessadorDeBoletos.processa_boletos(lista_de_boletos1, fatura, "17/04/2022", "BOLETO"), "Fatura PENDENTE com 2 pagamentos do tipo BOLETO");
 	}
-	public static void main(String[] args) {
-		
-		
-		
-		
-		
+	public static void main(String[] args) {	
 	}
 }
